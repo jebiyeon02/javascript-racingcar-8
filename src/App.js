@@ -2,7 +2,7 @@ import { Console } from "@woowacourse/mission-utils";
 import Car from "./Car.js";
 
 class App {
-  async isValidateNames(names) {
+  isValidateNames(names) {
     // 여기 indent depth 줄여보자 나중에
     names.map((name) => {
       if (name.length > 5)
@@ -20,10 +20,18 @@ class App {
     }
   }
 
-  async isValidatePlayTimes(playTimes) {
+  isValidatePlayTimes(playTimes) {
     if (isNaN(playTimes) || playTimes < 0) {
       throw new Error("[ERROR] : 시도 횟수는 0 또는 양의 정수이어야 합니다.");
     }
+  }
+
+  playRound(cars) {
+    cars.map((car) => {
+      car.forward();
+      car.printNowDistance();
+    });
+    Console.print("");
   }
 
   async run() {
