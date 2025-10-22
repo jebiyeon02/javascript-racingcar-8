@@ -53,6 +53,13 @@ class App {
     return maxDistance;
   }
 
+  printWinners(cars, maxDistance) {
+    const winners = cars
+      .filter((car) => car.forwardDistance === maxDistance)
+      .map((car) => car.name);
+    Console.print(`최종 우승자 : ${winners.join(", ")}`);
+  }
+
   async run() {
     const input = await Console.readLineAsync(
       "경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)\n"
@@ -70,6 +77,7 @@ class App {
     );
     this.isValidatePlayTimes(playTimes);
     this.startRacing(cars, playTimes);
+    this.printWinners(cars, this.getMaxDistance(cars));
   }
 }
 
