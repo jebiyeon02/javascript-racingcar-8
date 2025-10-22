@@ -1,4 +1,4 @@
-import { Random } from "@woowacourse/mission-utils";
+import { Random, Console } from "@woowacourse/mission-utils";
 
 export default class Car {
   constructor(name) {
@@ -11,5 +11,12 @@ export default class Car {
     if (number >= 4) {
       this.forwardDistance += 1;
     }
+  }
+
+  printNowDistance() {
+    const distanceSymbol = "-";
+    Console.print(
+      `${this.name} : ${distanceSymbol.repeat(this.forwardDistance)}`
+    );
   }
 }
