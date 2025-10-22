@@ -34,6 +34,14 @@ class App {
     Console.print("");
   }
 
+  startRacing(cars, playTimes) {
+    Console.print("");
+    Console.print("실행 결과");
+    for (let i = 0; i < playTimes; i++) {
+      this.playRound(cars);
+    }
+  }
+
   async run() {
     const input = await Console.readLineAsync(
       "경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)\n"
@@ -50,6 +58,7 @@ class App {
       "시도할 횟수는 몇 회인가요?\n"
     );
     this.isValidatePlayTimes(playTimes);
+    this.startRacing(cars, playTimes);
   }
 }
 
