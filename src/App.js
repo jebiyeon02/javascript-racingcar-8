@@ -1,4 +1,5 @@
 import { Console } from "@woowacourse/mission-utils";
+import Car from "./Car.js";
 
 class App {
   async isValidateNames(names) {
@@ -25,6 +26,11 @@ class App {
     );
     const names = input.split(",").map((name) => name.replace(" ", ""));
     this.isValidateNames(names);
+
+    const cars = [];
+    for (const name of names) {
+      cars.push(new Car(name));
+    }
   }
 }
 
