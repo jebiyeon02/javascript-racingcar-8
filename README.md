@@ -27,6 +27,7 @@
 1. 빈 문자열을 입력하는 경우 <br> -> ""
 2. 이름이 5자를 초과하는 경우 <br> -> "_yeonjun_,pobi,woowa"
 3. 쉼표의 쓰임이 올바르지 않은경우<br> -> "pobi,,woowa" | ",pobi,woowa" | "pobi,woowa,"
+4. 2개 이상의 자동차가 같은 이름을 사용하는 경우<br> -> "pobi,pobi"
 
 #### 시도할 횟수를 입력받을 때
 
