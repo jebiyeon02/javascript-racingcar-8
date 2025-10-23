@@ -1,28 +1,26 @@
 import { Console } from "@woowacourse/mission-utils";
 import Car from "./Car.js";
+import { ERROR_MESSAGES } from "./constants/errorMessages.js";
+import { CONSTANTS } from "./constants/constants.js";
 
 class App {
   isValidateNames(names) {
-    // 여기 indent depth 줄여보자 나중에
     names.map((name) => {
-      if (name.length > 5)
-        throw new Error(
-          "[ERROR] : 자동차 이름은 다섯 글자를 초과할 수 없습니다."
-        );
-      if (name.length === 0)
-        throw new Error("[ERROR] : 자동차 이름에 빈 값이 존재합니다.");
+      if (name.length > CONSTANTS.CAR_NAME_MAX_LENGTH)
+        throw new Error(ERROR_MESSAGES.CAR_NAME_LENGTH_OVER_MAX_LENGTH);
+      if (name.length === 0) throw new Error(ERROR_MESSAGES.CAR_NAME_BLANK);
       return name;
     });
 
     const nameSet = new Set(names);
     if (names.length !== nameSet.size) {
-      throw new Error("[ERROR] : 2개 이상의 자동차 이름이 동일합니다.");
+      throw new Error(ERROR_MESSAGES.CAR_NAME_SAME);
     }
   }
 
   isValidatePlayTimes(playTimes) {
     if (isNaN(playTimes) || playTimes < 0) {
-      throw new Error("[ERROR] : 시도 횟수는 0 또는 양의 정수이어야 합니다.");
+      throw new Error(ERROR_MESSAGES.INVALID_PLAY_TIMES);
     }
   }
 
