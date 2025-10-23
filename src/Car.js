@@ -1,4 +1,4 @@
-import { Random, Console } from "@woowacourse/mission-utils";
+import { Random, Console } from '@woowacourse/mission-utils';
 
 export default class Car {
   constructor(name) {
@@ -14,9 +14,9 @@ export default class Car {
   }
 
   printNowDistance() {
-    const distanceSymbol = "-";
+    const distanceSymbol = '-';
     Console.print(
-      `${this.name} : ${distanceSymbol.repeat(this.forwardDistance)}`
+      `${this.name} : ${distanceSymbol.repeat(this.forwardDistance)}`,
     );
   }
 }

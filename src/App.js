@@ -1,7 +1,7 @@
-import { Console } from "@woowacourse/mission-utils";
-import Car from "./Car.js";
-import { ERROR_MESSAGES } from "./constants/errorMessages.js";
-import { CONSTANTS } from "./constants/constants.js";
+import { Console } from '@woowacourse/mission-utils';
+import Car from './Car.js';
+import { ERROR_MESSAGES } from './constants/errorMessages.js';
+import { CONSTANTS } from './constants/constants.js';
 
 class App {
   isValidateNames(names) {
@@ -29,12 +29,12 @@ class App {
       car.forward();
       car.printNowDistance();
     });
-    Console.print("");
+    Console.print('');
   }
 
   startRacing(cars, playTimes) {
-    Console.print("");
-    Console.print("실행 결과");
+    Console.print('');
+    Console.print('실행 결과');
     for (let i = 0; i < playTimes; i++) {
       this.playRound(cars);
     }
@@ -55,14 +55,14 @@ class App {
     const winners = cars
       .filter((car) => car.forwardDistance === maxDistance)
       .map((car) => car.name);
-    Console.print(`최종 우승자 : ${winners.join(", ")}`);
+    Console.print(`최종 우승자 : ${winners.join(', ')}`);
   }
 
   async run() {
     const input = await Console.readLineAsync(
-      "경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)\n"
+      '경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)\n',
     );
-    const names = input.split(",").map((name) => name.replace(" ", ""));
+    const names = input.split(',').map((name) => name.replace(' ', ''));
     this.isValidateNames(names);
 
     const cars = [];
@@ -70,9 +70,8 @@ class App {
       cars.push(new Car(name));
     }
 
-    const playTimes = await Console.readLineAsync(
-      "시도할 횟수는 몇 회인가요?\n"
-    );
+    const playTimes =
+      await Console.readLineAsync('시도할 횟수는 몇 회인가요?\n');
     this.isValidatePlayTimes(playTimes);
     this.startRacing(cars, playTimes);
     this.printWinners(cars, this.getMaxDistance(cars));
