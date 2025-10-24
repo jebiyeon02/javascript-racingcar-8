@@ -65,10 +65,10 @@ class App {
     const names = input.split(',').map((name) => name.replace(' ', ''));
     this.isValidateNames(names);
 
-    const cars = [];
-    for (const name of names) {
-      cars.push(new Car(name));
-    }
+    const cars = names.reduce((acc, name) => {
+      acc.push(new Car(name));
+      return acc;
+    }, []);
 
     const playTimes =
       await Console.readLineAsync('시도할 횟수는 몇 회인가요?\n');
