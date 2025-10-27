@@ -18,18 +18,30 @@ export default class InputManager {
       .map((name) => name.replaceAll(' ', ''));
   }
 
-  isValidateNames() {
+  validateNameLength() {
     this.#names.map((name) => {
       if (name.length > CONSTANTS.CAR_NAME_MAX_LENGTH)
         throw new Error(ERROR_MESSAGES.CAR_NAME_LENGTH_OVER_MAX_LENGTH);
-      if (name.length === 0) throw new Error(ERROR_MESSAGES.CAR_NAME_BLANK);
-      return name;
     });
+  }
 
+  validateNameIsNotBlank() {
+    this.#names.map((name) => {
+      if (name.length === 0) throw new Error(ERROR_MESSAGES.CAR_NAME_BLANK);
+    });
+  }
+
+  validateNameDuplicate() {
     const nameSet = new Set(this.#names);
     if (this.#names.length !== nameSet.size) {
       throw new Error(ERROR_MESSAGES.CAR_NAME_SAME);
     }
+  }
+
+  isValidateNames() {
+    this.validateNameLength();
+    this.validateNameIsNotBlank();
+    this.validateNameDuplicate();
   }
 
   async inputPlayTimes() {
