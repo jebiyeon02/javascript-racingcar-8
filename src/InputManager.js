@@ -50,7 +50,7 @@ export default class InputManager {
   }
 
   isValidatePlayTimes() {
-    if (isNaN(this.#playTimes) || this.#playTimes < 0) {
+    if (isNaN(this.#playTimes) || Number(this.#playTimes) < 0) {
       throw new Error(ERROR_MESSAGES.INVALID_PLAY_TIMES);
     }
   }
