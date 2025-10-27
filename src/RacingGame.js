@@ -6,11 +6,21 @@ export default class RacingGame {
     this.playTimes = playTimes;
   }
 
-  playRound() {
+  forwardAllCars() {
     this.cars.map((car) => {
       car.forward();
+    });
+  }
+
+  printAllCarDistance() {
+    this.cars.map((car) => {
       car.printNowDistance();
     });
+  }
+
+  playRound() {
+    this.forwardAllCars();
+    this.printAllCarDistance();
     Console.print('');
   }
 
