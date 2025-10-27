@@ -33,10 +33,15 @@ export default class RacingGame {
     return maxDistance;
   }
 
-  printWinners() {
+  getWinner() {
     const winners = this.cars
       .filter((car) => car.forwardDistance === this.getMaxDistance())
       .map((car) => car.name);
-    Console.print(`최종 우승자 : ${winners.join(', ')}`);
+
+    return winners;
+  }
+
+  printWinners() {
+    Console.print(`최종 우승자 : ${this.getWinner().join(', ')}`);
   }
 }
