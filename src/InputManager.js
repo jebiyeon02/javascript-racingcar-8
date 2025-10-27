@@ -19,14 +19,14 @@ export default class InputManager {
   }
 
   validateNameLength() {
-    this.#names.map((name) => {
+    this.#names.forEach((name) => {
       if (name.length > CONSTANTS.CAR_NAME_MAX_LENGTH)
         throw new Error(ERROR_MESSAGES.CAR_NAME_LENGTH_OVER_MAX_LENGTH);
     });
   }
 
   validateNameIsNotBlank() {
-    this.#names.map((name) => {
+    this.#names.forEach((name) => {
       if (name.length === 0) throw new Error(ERROR_MESSAGES.CAR_NAME_BLANK);
     });
   }
