@@ -13,7 +13,9 @@ export default class InputManager {
   }
 
   removeWhiteSpaceFromNames() {
-    this.#names = this.#names.split(',').map((name) => name.replace(' ', ''));
+    this.#names = this.#names
+      .split(',')
+      .map((name) => name.replaceAll(' ', ''));
   }
 
   isValidateNames() {
