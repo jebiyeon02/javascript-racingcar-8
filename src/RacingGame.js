@@ -7,13 +7,13 @@ export default class RacingGame {
   }
 
   forwardAllCars() {
-    this.cars.map((car) => {
+    this.cars.forEach((car) => {
       car.forward();
     });
   }
 
   printAllCarDistance() {
-    this.cars.map((car) => {
+    this.cars.forEach((car) => {
       car.printNowDistance();
     });
   }
@@ -34,7 +34,7 @@ export default class RacingGame {
 
   getMaxDistance() {
     let maxDistance = 0;
-    this.cars.map((car) => {
+    this.cars.forEach((car) => {
       if (car.forwardDistance > maxDistance) {
         maxDistance = car.forwardDistance;
       }
