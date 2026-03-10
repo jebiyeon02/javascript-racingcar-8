@@ -8,4 +8,26 @@ describe("자동차 테스트", () => {
     // when & then
     expect(car.getDistance()).toEqual(0);
   });
+
+  test("[기능] 뽑은 숫자가 4일 때 1칸 전진해야 한다.", () => {
+    // given
+    const car = new Car("name");
+
+    // when
+    car.moveForward(4);
+
+    // then
+    expect(car.getDistance()).toEqual(1);
+  });
+
+  test("[기능] 뽑은 숫자가 4일 때 1칸 전진해야 한다.", () => {
+    // given
+    const car = new Car("name");
+
+    // when
+    car.moveForward(3);
+
+    // then
+    expect(car.getDistance()).toEqual(0);
+  });
 });
