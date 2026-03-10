@@ -40,4 +40,12 @@ describe("자동차 테스트", () => {
     // when & then
     expect(() => new Car(wrongName)).toThrow();
   });
+
+  test("[예외] 자동차 이름이 1글자 미만이면 예외가 발생한다.", () => {
+    // given
+    const wrongName = "";
+
+    // when & then
+    expect(() => new Car(wrongName)).toThrow();
+  });
 });
