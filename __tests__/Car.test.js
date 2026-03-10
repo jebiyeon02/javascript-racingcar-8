@@ -12,9 +12,10 @@ describe("자동차 테스트", () => {
   test("[기능] 뽑은 숫자가 4일 때 1칸 전진해야 한다.", () => {
     // given
     const car = new Car("name");
+    const canForwardNumber = 4;
 
     // when
-    car.moveForward(4);
+    car.moveForward(canForwardNumber);
 
     // then
     expect(car.getDistance()).toEqual(1);
@@ -23,11 +24,20 @@ describe("자동차 테스트", () => {
   test("[기능] 뽑은 숫자가 4일 때 1칸 전진해야 한다.", () => {
     // given
     const car = new Car("name");
+    const noForwardNumber = 3;
 
     // when
-    car.moveForward(3);
+    car.moveForward(noForwardNumber);
 
     // then
     expect(car.getDistance()).toEqual(0);
+  });
+
+  test("[예외] 자동차 이름이 5글자를 초과하면 예외가 발생한다.", () => {
+    // given
+    const wrongName = "abcdef";
+
+    // when & then
+    expect(() => new Car(wrongName)).toThrow();
   });
 });
