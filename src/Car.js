@@ -3,7 +3,7 @@ class Car {
   #distance;
 
   constructor(name) {
-    if (name.length > 5) {
+    if (name.length > 5 || name.length < 1) {
       throw new Error("[ERROR]");
     }
     this.#name = name;
