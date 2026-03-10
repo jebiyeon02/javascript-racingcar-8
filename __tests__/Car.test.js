@@ -46,6 +46,6 @@ describe("자동차 테스트", () => {
     const wrongName = "";
 
     // when & then
-    expect(() => new Car(wrongName)).toThrow();
+    expect(() => new Car(wrongName)).toThrow("[ERROR]");
   });
 });

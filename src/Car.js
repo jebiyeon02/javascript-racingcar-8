@@ -1,17 +1,22 @@
+import { CAR, ERROR_MESSAGE } from "./constants";
+
 class Car {
   #name;
   #distance;
 
   constructor(name) {
-    if (name.length > 5 || name.length < 1) {
-      throw new Error("[ERROR]");
+    if (
+      name.length > CAR.NAME.MAX_LENGTH ||
+      name.length < CAR.NAME.MIN_LENGTH
+    ) {
+      throw new Error(ERROR_MESSAGE.PREFIX);
     }
     this.#name = name;
     this.#distance = 0;
   }
 
   moveForward(randomNumber) {
-    if (randomNumber >= 4) {
+    if (randomNumber >= CAR.FORWARD_BASE) {
       this.#distance++;
     }
   }
