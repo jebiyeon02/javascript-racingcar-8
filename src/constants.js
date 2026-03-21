@@ -7,5 +7,9 @@ export const CAR = {
     MIN_LENGTH: 1,
     MAX_LENGTH: 5,
   },
-  FORWARD_BASE: 4,
+  FORWARD: {
+    MIN: 0,
+    MAX: 9,
+    BASE: 4,
+  },
 };

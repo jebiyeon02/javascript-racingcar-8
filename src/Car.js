@@ -16,7 +16,7 @@ class Car {
   }
 
   moveForward(randomNumber) {
-    if (randomNumber >= CAR.FORWARD_BASE) {
+    if (randomNumber >= CAR.FORWARD.BASE) {
       this.#distance++;
     }
   }

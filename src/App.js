@@ -1,5 +1,6 @@
+import { Random } from "@woowacourse/mission-utils";
 import Car from "./Car";
-import { ERROR_MESSAGE } from "./constants";
+import { CAR, ERROR_MESSAGE } from "./constants";
 
 class App {
   async run() {}
@@ -13,7 +14,11 @@ class App {
 
   static tryAllCarsMoveForward(cars, tryCount) {
     for (let i = 0; i < tryCount; i++) {
-      cars.forEach((car) => car.moveForward(4));
+      cars.forEach((car) =>
+        car.moveForward(
+          Random.pickNumberInRange(CAR.FORWARD.MIN, CAR.FORWARD.MAX),
+        ),
+      );
     }
   }
 
